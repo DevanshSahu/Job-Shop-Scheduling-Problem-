@@ -1,0 +1,59 @@
+// Program to solve Job Shop Scheduling problem  
+
+// using Branch and Bound  
+
+#include <bits/stdc++.h>  
+
+using namespace std;  
+
+#define N 4  
+
+   
+
+// state space tree node  
+
+struct Node  
+
+{  
+
+    // stores parent node of current node  
+
+    // helps in tracing path when answer is found  
+
+    Node* parent;  
+
+   
+
+    // contains time for ancestors nodes  
+
+    // including current node  
+
+    int pathTime;  
+
+   
+
+    // contains least promising time 
+
+    int time;  
+
+   
+
+    // contains machine number  
+
+    int machineID;  
+
+   
+
+    // contains Job ID  
+
+    int jobID;  
+
+   
+
+    // Boolean array assigned will contain 
+
+    // info about available jobs  
+
+    bool assigned[N];  
+
+};

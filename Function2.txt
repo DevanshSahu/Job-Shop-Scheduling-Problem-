@@ -1,0 +1,79 @@
+// Function to calculate the least promising time  
+
+// of node after machine x is assigned to job y.  
+
+// i.e. minimizing the makespan. 
+
+int calculateTime(int timeMatrix[N][N], int x,  
+
+                  int y, bool assigned[])  
+
+{  
+
+    int time = 0;  
+
+   
+
+    // to store unavailable jobs  
+
+    bool available[N] = {true};  
+
+   
+
+    // start from next machine  
+
+    for (int i = x + 1; i < N; i++)  
+
+    {  
+
+        int min = INT_MAX, minIndex = -1;  
+
+   
+
+        // do for each job  
+
+        for (int j = 0; j < N; j++)  
+
+        {  
+
+            // if job is unassigned  
+
+            if (!assigned[j] && available[j] &&  
+
+                timeMatrix[i][j] < min)  
+
+            {  
+
+                // store job number  
+
+                minIndex = j;  
+
+   
+
+                // store time  
+
+                min = timeMatrix[i][j];  
+
+            }  
+
+        }  
+
+   
+
+        // add time of next machine 
+
+        time += min;  
+
+   
+
+        // job becomes unavailable  
+
+        available[minIndex] = false;  
+
+    }  
+
+   
+
+    return time;  
+
+}  

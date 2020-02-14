@@ -1,0 +1,41 @@
+// Comparison object to be used to order the heap  
+
+struct comp  
+
+{  
+
+    bool operator()(const Node* lhs,  
+
+                   const Node* rhs) const 
+
+    {  
+
+        return lhs->time > rhs->time;  
+
+    }  
+
+};  
+
+   
+
+// print Assignments  
+
+void printAssignments(Node *min)  
+
+{  
+
+    if(min->parent==NULL)  
+
+        return;  
+
+   
+
+    printAssignments(min->parent);  
+
+    cout << "Assign Machine " << char(min->machineID + 'A')  
+
+         << " to Job " << min->jobID << endl;  
+
+   
+
+}  

@@ -1,0 +1,33 @@
+// Function to allocate a new search tree node  
+
+// Here Machine x is assigned to job y  
+
+Node* newNode(int x, int y, bool assigned[],  
+
+              Node* parent)  
+
+{  
+
+    Node* node = new Node;  
+
+   
+
+    for (int j = 0; j < N; j++)  
+
+        node->assigned[j] = assigned[j];  
+
+    node->assigned[y] = true;  
+
+   
+
+    node->parent = parent;  
+
+    node->machineID = x;  
+
+    node->jobID = y;  
+
+   
+
+    return node;  
+
+}  
